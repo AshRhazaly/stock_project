@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :balance_sheets
   resources :equities
 
   root 'equities#index'
