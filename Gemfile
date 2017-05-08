@@ -9,6 +9,7 @@ end
 gem 'yahoo-finance'
 gem 'stock_quote'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap_form'
 # Charting
 gem "highcharts-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

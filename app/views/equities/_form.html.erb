@@ -1,31 +1,32 @@
-<%= form_for(equity) do |f| %>
-<% if equity.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(equity.errors.count, "error") %>
-    prohibited this equity from being saved:</h2>
+<div class="container">
+  <%= bootstrap_form_for(equity) do |f| %>
+  <% if equity.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(equity.errors.count, "error") %>
+      prohibited this equity from being saved:</h2>
 
-  <ul>
-    <% equity.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<div class="field">
-  <%= f.label :symbol %>
-  <%= f.text_field :symbol %>
-</div>
-<div class="field">
-  <%= f.label :shares_owned %>
-  <%= f.text_field :shares_owned %>
-</div>
+    <ul>
+      <% equity.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.text_field :shares_owned %>
+  </div>
 
-<div class="field">
-  <%= f.label :price_paid %>
-  <%= f.text_field :price_paid %>
-</div>
+  <div class="field">
+    <%= f.text_field :price_paid %>
+  </div>
 
-<div class="actions">
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit class: "btn btn-success" %>
+  </div>
+  <br />
+  <%= link_to 'Back', equities_path, class: "btn btn-danger" %>
+  <% end %>
 </div>
-<% end %>
