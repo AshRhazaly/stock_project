@@ -1,43 +1,40 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Equities</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <% @equities.each do |equity| %>
-    <tr>
-      <th> Symbol </th>
-      <th> Name </th>
-      <th> Bid </th>
-      <th> Ask </th>
-      <th>% change</th>
-      <th>change</th>
-    </tr>
-      <%= equity.symbol %>
-      <%= StockQuote::Stock.quote(equity.symbol).name %>
-      <%= StockQuote::Stock.quote(equity.symbol).bid %>
-      <%= StockQuote::Stock.quote(equity.symbol).ask %>
-      <%= StockQuote::Stock.quote(equity.symbol).change_percent_change %>
-      <%= StockQuote::Stock.quote(equity.symbol).change %>
-      <%= equity.shares_owned %>
-      <%= equity.price_paid %>
-      <tr>
-        <td><%= link_to 'Show', equity %></td>
+    <table class="table">
+      <thead>
+        <tr>
+          <th> Symbol </th>
+          <th> Name </th>
+          <th> Bid </th>
+          <th> Ask </th>
+          <th>% change</th>
+          <th>shares owned</th>
+          <th>price paid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @equities.each do |equity| %>
+        <tr>
+        <td><%= equity.symbol %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).name %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).bid %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).ask %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).change_percent_change %></td>
+        <td><%= equity.shares_owned %></td>
+        <td><%= equity.price_paid %></td>
         <td><%= link_to 'Edit', edit_equity_path(equity) %></td>
         <td><%= link_to 'Destroy', equity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <hr>
-    <% end %>
-  </tbody>
-</table>
+        </tr>
+        <% end %>
+
+      </tbody>
+
+    </table>
+
 
 <br>
 
 <%= link_to 'New Equity', new_equity_path %>
+</div>

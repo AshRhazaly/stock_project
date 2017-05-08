@@ -8,6 +8,7 @@ end
 # Retrieve stock quotes
 gem 'yahoo-finance'
 gem 'stock_quote'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 # Charting
 gem "highcharts-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
