@@ -24,7 +24,7 @@ class EquitiesController < ApplicationController
   # POST /equities
   # POST /equities.json
   def create
-    @equity = Equity.new(equity_params)
+    @equity = StockQuote::Stock.quote(equity_params[:symbol])
 
     respond_to do |format|
       if @equity.save
@@ -69,6 +69,6 @@ class EquitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equity_params
-      params.require(:equity).permit(:name,:ask,:bid,:percent_change,:shares_owned,:price_paid)
+      params.require(:equity).permit(:name,:ask,:bid,:percent_change,:shares_owned,:price_paid,:symbol)
     end
 end
