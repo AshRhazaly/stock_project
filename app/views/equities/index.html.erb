@@ -7,11 +7,12 @@
         <tr>
           <th> Symbol </th>
           <th> Name </th>
-          <th> Bid </th>
-          <th> Ask </th>
-          <th>% change</th>
-          <th>shares owned</th>
-          <th>price paid</th>
+          <th> Open </th>
+          <th> Close </th>
+          <th> Previous Close </th>
+          <th> % change</th>
+          <th> Shares owned</th>
+          <th> Price paid</th>
         </tr>
       </thead>
       <tbody>
@@ -19,8 +20,9 @@
         <tr>
         <td><%= equity.symbol %></td>
         <td><%= StockQuote::Stock.quote(equity.symbol).name %></td>
-        <td><%= StockQuote::Stock.quote(equity.symbol).bid %></td>
-        <td><%= StockQuote::Stock.quote(equity.symbol).ask %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).open %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).close %></td>
+        <td><%= StockQuote::Stock.quote(equity.symbol).previous_close %></td>
         <td><%= StockQuote::Stock.quote(equity.symbol).change_percent_change %></td>
         <td><%= equity.shares_owned %></td>
         <td><%= equity.price_paid %></td>
