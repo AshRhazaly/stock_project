@@ -24,8 +24,7 @@ class EquitiesController < ApplicationController
   # POST /equities
   # POST /equities.json
   def create
-    @equity = StockQuote::Stock.quote(equity_params[:symbol])
-
+    @equity = Equity.new(equity_params)
     respond_to do |format|
       if @equity.save
         format.html { redirect_to @equity, notice: 'Equity was successfully created.' }
