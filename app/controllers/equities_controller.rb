@@ -69,6 +69,6 @@ class EquitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equity_params
-      params.fetch(:equity, {})
+      params.require(:equity).permit(:name,:ask,:bid,:percent_change,:shares_owned,:price_paid)
     end
 end
