@@ -18,14 +18,14 @@
       <tbody>
         <% @equities.each do |equity| %>
         <% data = YahooFinance::Client.new%>
-        <% equity_data = data.quotes([equity.symbol],[:ask,:name,:open,:close,:previous_close,:change_and_percent_change])%>
+        <% equity_data = data.quotes([equity.symbol],[:ask,:name,:open,:close,:previous_close,:change_in_percent])%>
         <tr>
         <td><%= equity.symbol %></td>
         <td><%= equity_data[0].name%></td>
         <td><%= equity_data[0].open%></td>
         <td><%= equity_data[0].close%></td>
         <td><%= equity_data[0].previous_close%></td>
-        <td><%= equity_data[0].change_and_percent_change%></td>
+        <td><%= equity_data[0].change_in_percent%></td>
         <td><%= equity.shares_owned %></td>
         <td><%= equity.price_paid %></td>
         <td><%= link_to 'Edit', edit_equity_path(equity) %></td>
