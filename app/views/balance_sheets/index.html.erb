@@ -7,12 +7,10 @@
         <tr>
           <th> Date </th>
           <th> Name </th>
-          <th> Open </th>
-          <th> Close </th>
-          <th> Previous Close </th>
-          <th> % change</th>
+          <th> Price Entered </th>
           <th> Shares owned</th>
-          <th> Price paid</th>
+          <th> Closing Price </th>
+          <th> Current Profit / Loss </th>
         </tr>
       </thead>
       <tbody>
@@ -21,12 +19,11 @@
         <% equity_data = data.quotes([equity.symbol],[:ask,:name,:open,:close,:previous_close,:change_in_percent])%>
         <tr>
         <td><%= equity.updated_at.localtime.strftime("%m/%d/%Y %I:%M%P")%></td>
-        <td><%= equity_data[0].open%></td>
-        <td><%= equity_data[0].close%></td>
-        <td><%= equity_data[0].previous_close%></td>
-        <td><%= equity_data[0].change_in_percent%></td>
+        <td><%= equity_data[0].name%></td>
+        <td><%= equity.price_paid%></td>
         <td><%= equity.shares_owned %></td>
-        <td><%= equity.price_paid %></td>
+        <td><%= equity_data[0].close%></td>
+        <td><%= ((equity.price_paid.to_f * equity.shares_owned.to_f) - equity_data[0].close.to_f).round(2) %></td>
         <td><%= link_to 'Edit', edit_equity_path(equity) %></td>
         <td><%= link_to 'Destroy', equity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
