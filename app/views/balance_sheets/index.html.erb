@@ -11,6 +11,7 @@
           <th> Shares owned</th>
           <th> Closing Price </th>
           <th> Current Profit / Loss </th>
+          <th> Charts </th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
         <td><%= equity.shares_owned %></td>
         <td><%= equity_data[0].close%></td>
         <td><%= ((equity.price_paid.to_f * equity.shares_owned.to_f) - equity_data[0].close.to_f).round(2) %></td>
+        <td><%= link_to equity.symbol, "https://sg.finance.yahoo.com/chart/#{equity.symbol}"%></td>
         <td><%= link_to 'Edit', edit_equity_path(equity) %></td>
         <td><%= link_to 'Destroy', equity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
