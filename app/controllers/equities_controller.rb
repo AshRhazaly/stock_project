@@ -25,6 +25,7 @@ class EquitiesController < ApplicationController
   # POST /equities.json
   def create
     @equity = Equity.new(equity_params)
+    @equity_yahoo = YahooFinance::Client.new
     respond_to do |format|
       if @equity.save
         format.html { redirect_to @equity, notice: 'Equity was successfully created.' }
