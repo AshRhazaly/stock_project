@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508073954) do
+ActiveRecord::Schema.define(version: 20170512095054) do
 
   create_table "balance_sheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "equity_id_id"
+    t.index ["equity_id_id"], name: "index_balance_sheets_on_equity_id_id"
   end
 
   create_table "equities", force: :cascade do |t|
