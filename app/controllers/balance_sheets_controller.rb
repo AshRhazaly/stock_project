@@ -4,7 +4,7 @@ class BalanceSheetsController < ApplicationController
   # GET /balance_sheets
   # GET /balance_sheets.json
   def index
-    @balance_sheets = Equity.all
+    @balance_sheet = Equity.all
   end
 
   # GET /balance_sheets/1
