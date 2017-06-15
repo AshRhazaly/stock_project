@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Retrieve stock quotes
+gem 'stock_quote'
 gem 'yahoo-finance'
 gem 'stock_quote'
 gem 'bootstrap', '~> 4.0.0.alpha6'
